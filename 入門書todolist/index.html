@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>入門書todo list</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <h2>To Do List</h2>
+
+    <div id="app">
+      <input
+        type="text"
+        size="24"
+        placeholder="すること"
+        v-model.trim="addtodo"
+        id="input"
+      />
+      <!-- <input type="date">　まで！ -->
+      <button type="submit" v-on:click="addList">add</button>
+
+      <div v-for="(todo,index) in todos">
+        <label>
+          <input type="checkbox" v-model="todo.done" />
+          <span v-bind:class="{'donestyle':todo.done}">{{ todo.text}} </span>
+
+          <button v-on:click="DeleteTodo(index)">Garbage</button>
+        </label>
+      </div>
+
+      <p>{{ remaining }}/{{ todos.length }}件</p>
+      <button v-on:click="CleanTodos">archive</button>
+
+      <div class="container">
+        <div class="donelist">
+          <p>DoneList</p>
+
+          <div v-for="(archive,index) in archives">
+            <label>
+              <span> {{ archive.text }}</span>
+              <button type="submit" v-on:click="DeleteArchives">Delete</button>
+            </label>
+          </div>
+        </div>
+
+        <div class="binlist">
+          <p>Bin</p>
+          <div v-for="garbage in garbages ">
+            <label>
+              <span>{{ garbage.text }} </span>
+              <button type="submit" v-on:click="DeleteGarbages">Delete</button>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

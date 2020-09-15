@@ -1,0 +1,40 @@
+body {
+  text-align: center;
+  width: 300px;
+  padding-top: 30px;
+  margin: 0 auto;
+}
+
+.donestyle {
+  text-decoration: line-through;
+  color: lightblue;
+}
+
+li {
+  list-style: none;
+}
+
+.container {
+  display: flex;
+  padding-top: 100px;
+  text-align: center;
+  position: relative;
+  /* width:300px;
+  margin:0 auto; */
+}
+
+.donelist {
+  width: 150px;
+}
+
+.donelist p {
+  padding-bottom: 10px;
+}
+
+.binlist {
+  width: 150px;
+}
+
+#app > input {
+  margin-bottom: 15px;
+}
